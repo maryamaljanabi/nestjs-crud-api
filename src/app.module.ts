@@ -4,9 +4,14 @@ const envModule = ConfigModule.forRoot({
   isGlobal: true,
 });
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { typeormConnectionConfig } from 'config/typeorm.config';
+import { typeormConnectionConfig } from 'src/config/typeorm.config';
+import { ProductsModule } from './products/products.module';
 
 @Module({
-  imports: [envModule, TypeOrmModule.forRoot(typeormConnectionConfig)],
+  imports: [
+    envModule,
+    TypeOrmModule.forRoot(typeormConnectionConfig),
+    ProductsModule,
+  ],
 })
 export class AppModule {}
