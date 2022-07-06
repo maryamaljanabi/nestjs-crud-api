@@ -17,6 +17,11 @@ export class Product {
   price: number;
 
   @Column({
+    type: 'text',
+  })
+  description: string;
+
+  @Column({
     nullable: false,
     default: () => 'CURRENT_TIMESTAMP',
   })
