@@ -61,7 +61,7 @@ export class ProductsService {
       );
     }
 
-    await this.productRepository.remove(foundProduct);
+    await this.productRepository.delete(id);
     return foundProduct.product_id;
   }
 }
