@@ -11,7 +11,7 @@ import {
 export class CreateProductDto {
   @IsNotEmpty()
   @IsString({ message: 'name must be a text' })
-  @MaxLength(10)
+  @MaxLength(255)
   @MinLength(3)
   name: string;
 

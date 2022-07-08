@@ -3,10 +3,12 @@ import {
   Controller,
   Get,
   Post,
-  Put,
   Delete,
   Param,
   ParseIntPipe,
+  UsePipes,
+  ValidationPipe,
+  Patch,
 } from '@nestjs/common';
 import { CreateProductDto, UpdateProductDto } from './dto/index';
 import { Product } from './product.entity';
@@ -31,7 +33,8 @@ export class ProductsController {
     return this.productsService.create(product);
   }
 
-  @Put(':id')
+  @Patch(':id')
+  @UsePipes(ValidationPipe)
   async update(
     @Param('id', ParseIntPipe) id: number,
     @Body() product: UpdateProductDto,
