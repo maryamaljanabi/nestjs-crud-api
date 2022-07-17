@@ -11,4 +11,5 @@ export const typeormConnectionConfig: TypeOrmModuleOptions = {
   database: process.env.MYSQL_DATABASE,
   entities: ['dist/**/*.entity{.ts,.js}'],
   synchronize: true,
+  timezone: 'utc',
 };
